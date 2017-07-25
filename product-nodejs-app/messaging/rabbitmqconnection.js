@@ -2,7 +2,7 @@ var amqp = require('amqplib/callback_api');
 
 var start = {
     startMessaging: function (productID) {
-        amqp.connect('amqp://localhost', function (err, conn) {
+        amqp.connect('amqp://172.17.0.2', function (err, conn) {
             conn.createChannel(function (err, ch) {
                 var q = 'product';
                 var msg = productID;
