@@ -1,0 +1,20 @@
+version: '2'
+services:
+ inventory-app:
+    image: ramya/node-web-app
+    links:
+     - rabbitmq
+    ports:
+     - "3000:8081"    
+ product-app:
+    image: sathish/node-web-app
+    links:
+     - rabbitmq
+    ports:
+     - "3001:8080"  
+ rabbitmq:
+    image: rabbitmq:latest
+    ports:
+    - "5672:5672"
+    expose:
+    - "5672" 
